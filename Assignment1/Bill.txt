@@ -1,0 +1,4 @@
+Bill number: 1
+Bill with value: 1000 was paid!
+The account number from which money was extraction is: 2
+The amount includes the bill at : E.on, Electrica and Telekom
