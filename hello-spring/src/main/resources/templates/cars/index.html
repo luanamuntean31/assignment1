@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace=" fragments1 :: head"></head>
+<body class="container">
+
+<nav th:replace="fragments1 :: navigation"></nav>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Car Brand</th>
+    </tr>
+    </thead>
+
+    <tr th:each="car : ${cars}">
+        <td><a th:href="'/cars/detail?carId=' + ${car.id}" th:text="${car.brand}"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>

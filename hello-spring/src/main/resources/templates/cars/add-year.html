@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace=" fragments1 :: head"></head>
+<body class="container">
+
+<nav th:replace="fragments1 :: navigation"></nav>
+
+<form method="post">
+    <div class="form-group">
+        <input type="hidden" th:value="${car.id}" th:field="${carYear.car}">
+        <select th:field="${carYear.year}">
+            <option th:each="year : ${years}"
+                    th:value="${year.id}"
+                    th:text="${year.brand}"
+            >
+            </option>
+        </select>
+    </div>
+    <input type="submit" class="btn btn-success" value="Add Year">
+</form>
+
+
+</body>
+</html>

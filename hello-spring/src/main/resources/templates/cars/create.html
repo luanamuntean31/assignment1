@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace=" fragments1 :: head"></head>
+<body class="container">
+
+<nav th:replace="fragments1 :: navigation"></nav>
+<form method="post" action="/cars/create">
+    <div class="form-group">
+        <label>Brand
+            <input th:field="${car.brand}" class="form-control">
+        </label>
+        <p class="error" th:errors="${car.brand}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input th:field="${car.carDetails.description}" class="form-control">
+        </label>
+        <p class="error" th:errors="${car.carDetails.description}"></p>
+    </div>
+    <div class="form-group">
+        <label>Contact Email
+            <input th:field="${car.carDetails.contactEmail}" class="form-control">
+        </label>
+        <p class="error" th:errors="${car.carDetails.contactEmail}"></p>
+    </div>
+    <div class="form-group">
+        <label>Category
+            <select th:field="${car.category}">
+                <option th:each="category : ${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.brand}">
+                </option>
+            </select>
+            <p class="error" th:errors="${car.category}"></p>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+
+</form>
+</body>
+</html>

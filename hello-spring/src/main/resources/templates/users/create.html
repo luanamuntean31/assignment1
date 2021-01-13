@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace=" fragments2 :: head"></head>
+<body class="container">
+
+<nav th:replace="fragments2 :: navigation"></nav>
+<form method="post" action="/users/create">
+
+    <div class="form-group">
+
+        <label>Username
+            <input th:field="${user.username}" class="form-control">
+        </label>
+        <p class="error" th:errors="${user.username}"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Password <br>
+            <input th:field="${user.password}" class="form-control">
+            <!--input type="password" id="pwd" name="pwd" minlength="8" class="form-control"-->
+        </label>
+        <p class="error" th:errors="${user.password}"></p>
+
+    </div>
+
+
+    <div class="form-group">
+        <label>Category
+            <select th:field="${user.category}">
+                <option th:each="category : ${categories}"
+                        th:value="${category}"
+                        th:text="${category.displayType}">
+                </option>
+            </select>
+            <p class="error" th:errors="${user.category}"></p>
+        </label>
+    </div>
+
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+
+</form>
+</body>
+</html>
